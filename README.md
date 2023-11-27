@@ -1,4 +1,4 @@
-# R-course-work
+# R - course work
 - This repository is created for manage data programming in R module Coursework
 
 # Github tutorials
