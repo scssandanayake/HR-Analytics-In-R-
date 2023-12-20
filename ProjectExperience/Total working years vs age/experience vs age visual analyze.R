@@ -20,6 +20,39 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
     y = "Age"
   )
 
+ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
+  geom_point(alpha = 0.7,            #here we mapping the geom points only
+             aes(size= Age,
+                 colour = Age))+
+  geom_smooth(method = lm, se=F)+
+  labs(
+    title = "Total working years Vs.Age distribution",
+    x = "Total Working Years",
+    y = "Age"
+  )
+
+ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
+  geom_point(alpha = 0.7,            #here we mapping the geom points only
+             aes(size= Age,
+                 colour = AgeGroup))+
+  geom_smooth(method = lm, se=F)+
+  labs(
+    title = "Total working years Vs.Age distribution",
+    x = "Total Working Years",
+    y = "Age"
+  )
+
+ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
+  geom_point(alpha = 0.7,            #here we mapping the geom points only
+             aes(size=TotalWorkingYears,
+                 colour = TotalWorkingYears))+
+  geom_smooth(method = lm, se=F)+
+  labs(
+    title = "Total working years Vs.Age distribution",
+    x = "Total Working Years",
+    y = "Age"
+  )
+
 #scatter plot total working years (experience) vs Age
 ggplot(data = data, aes(x = factor(TotalWorkingYears), y = Age)) +
   geom_point(fill = "blue", alpha = 0.7) +
@@ -83,7 +116,7 @@ barplot(age_count, main = "Barplot - Employee age Distribution ",
 
 ########################################################################################
 
-#section 3
+#section 3 (main insights)
 #bar plot total working years (experience) vs Age with age group
 ggplot(data = data, aes(x =data$TotalWorkingYears, y = data$Age, fill = AgeGroup)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -91,6 +124,14 @@ ggplot(data = data, aes(x =data$TotalWorkingYears, y = data$Age, fill = AgeGroup
        x = "Total Working Years", y = "Age") +
   theme_minimal()
 
+#bar plot total working years (experience) vs Age with Attrition
+ggplot(data = data, aes(x =data$TotalWorkingYears, y = data$Age, fill = Attrition)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Total working years Vs.Age distribution with Attrition",
+       x = "Total Working Years", y = "Age") +
+  theme_minimal()
+
+###########################################
 
 #bar plot total working years (experience) vs Age
 ggplot(data=data, aes(x =TotalWorkingYears, y =Age)) +
@@ -105,7 +146,7 @@ ggplot(data, aes(x = factor(TotalWorkingYears), fill = factor(Age))) +
   geom_bar(position = "dodge", alpha = 0.7, stat = "count") +
   labs(title = "Bar plot - Total working years Vs.Age distribution",
        x = "Total Working Year",
-       y = "Age") +
+       y = "No. of employees") +
   theme_minimal()
 
 
@@ -114,7 +155,7 @@ ggplot(data, aes(x = TotalWorkingYears, fill = factor(Age))) +
   geom_histogram(position = "identity", alpha = 0.7, bins = 30) +
   labs(title = "Histogram - Total working years Vs.Age distribution",
        x = "Total Working Year",
-       y = "Age") +
+       y = "No. of employees") +
   theme_minimal()
 
 #bar plots total working years (experience) of employees with age group
