@@ -73,5 +73,5 @@ varImpPlot(rf,
            n.var = 10,
            main = "Top 10 - Variable Importance")
 importance(rf)
-MeanDecreaseGini
+
 
