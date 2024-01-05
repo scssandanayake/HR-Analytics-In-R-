@@ -279,26 +279,3 @@ data %>%
 
 #####################################################################################################
 #end end end 
-
-
-
-
-
-
-
-
-
-mpg %>%
-  filter(cty<25) %>%              #filtering the city variable values less than 25 and piping it 
-  ggplot(aes(displ,cty))+
-  geom_point(alpha = 0.7,
-             aes(colour = drv,
-                 size = trans))+
-  geom_smooth(method = lm,se =F)+
-  geom_smooth(method = lm)+
-  #geom_smooth()+
-  facet_wrap(~year, nrow=1)+
-  labs(x= "Engine size",
-       y= "MPG in the city",
-       title= "fuel effciency")+
-  theme_bw()
