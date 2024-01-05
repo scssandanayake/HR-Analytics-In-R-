@@ -203,15 +203,6 @@ data %>%
   theme_bw()+
   labs(title = "Boxplot Comparison of total working years and Job Level")
 
-#Boxplots for all Job Levels with age distribution
-ggplot(data, aes(x = factor(TotalWorkingYears), y =JobLevel, fill = factor(AgeGroup))) +
-  geom_boxplot(alpha = 0.7) +
-  geom_point(alpha = 0.7)+
-  labs(title = "Boxplot Comparison of Job Level and total working years",
-       x = "Total Working Year",
-       y = "Job Level") +
-  theme_minimal()
-
 
 #Boxplots for all Job Levels with age distribution
 ggplot(data, aes(x = factor(JobLevel), y =TotalWorkingYears, fill = factor(AgeGroup))) +
