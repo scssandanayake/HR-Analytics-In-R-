@@ -288,37 +288,6 @@ data %>%
 
 
 
-#testing testing
-
-#Boxplots for 55-60 age groups with age distribution
-data %>%
-  filter(Age > 55 & Age <= 60) %>%
-  ggplot(aes(x = factor(TotalWorkingYears), y = JobLevel, fill = factor(AgeGroup))) +
-  geom_boxplot(alpha = 0.7,fill= "purple") +
-  geom_point(alpha = 0.8, size = 3) +
-  labs(title = "Boxplot Comparison of age and total working years",
-       x = "Age",
-       y = "Total Working Year") +
-  theme_minimal()
-
-data %>%
-  filter(Age > 45 & Age <= 55) %>%
-  ggplot(aes(x = factor(TotalWorkingYears), y = Age, fill = factor(AgeGroup))) +
-  geom_boxplot(alpha = 0.7,fill= "purple") +
-  geom_point(alpha = 0.8, size = 3) +
-  labs(title = "Boxplot Comparison of age and total working years",
-       x = "Age",
-       y = "Total Working Year") +
-  theme_minimal()
-
-
-
-
-
-
-
-
-
 mpg %>%
   filter(cty<25) %>%              #filtering the city variable values less than 25 and piping it 
   ggplot(aes(displ,cty))+
