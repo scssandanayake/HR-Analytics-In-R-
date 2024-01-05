@@ -76,6 +76,7 @@ ggplot(data = data,aes(x=data$Age,y=data$TotalWorkingYears))+
     y = "Age"
   )
 
+
 #check bell curve
 #scatter plot  Age vs total working years (experience)
 ggplot(data = data,aes(x=data$Age,y=data$TotalWorkingYears))+
@@ -173,15 +174,6 @@ data %>%
   #coord_flip()+                     #rotate the box plot
   theme_bw()+
   labs(title = "Boxplot Comparison of total working years and age")
-
-#Boxplots for all age groups with age distribution
-ggplot(data, aes(x = factor(TotalWorkingYears), y =Age, fill = factor(AgeGroup))) +
-  geom_boxplot(alpha = 0.7) +
-  geom_point(alpha = 0.7)+
-  labs(title = "Boxplot Comparison of age and total working years",
-       x = "Total Working Year",
-       y = "Age") +
-  theme_minimal()
 
 
 #Boxplots for all age groups with age distribution
