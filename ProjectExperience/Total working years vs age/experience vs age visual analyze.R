@@ -53,14 +53,6 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
     y = "Age"
   )
 
-#scatter plot total working years (experience) vs Age
-ggplot(data = data, aes(x = factor(TotalWorkingYears), y = Age)) +
-  geom_point(fill = "blue", alpha = 0.7) +
-  labs(title = "Total working years Vs.Age distribution",
-       x = "Total Working Years",
-       y = "Age") +
-  theme_minimal()
-
 #check bell curve
 #scatter plot total working years (experience) vs Age
 ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
