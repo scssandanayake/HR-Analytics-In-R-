@@ -1,6 +1,8 @@
 library(caTools)
 library(ROCR)
 library(dplyr)
+library(caret)
+
 
 dataset <- read.csv("D:\\N learn\\2nd year\\projects\\R project\\HR_Analytics.csv")
 summary(dataset)
@@ -41,10 +43,15 @@ predict1_reg <- predict(logistic_model, test_reg, type = "response")
 
 
 # Evaluating model accuracy using confusion matrix
-table(test_reg$Attrition, predict_reg)
+confusion_matrix <-table(test_reg$Attrition, predict_reg)
+print(confusion_matrix)
 
 missing_classerr <- mean(predict_reg != test_reg$Attrition)
 print(paste('Accuracy =', 1 - missing_classerr))
+
+contable <- confusionMatrix(as.factor(predict_reg), as.factor(test_reg$Attrition))
+print(contable)
+
 
 # ROC-AUC Curve
 ROCPred <- prediction(predict1_reg, test_reg$Attrition)
@@ -64,6 +71,5 @@ abline(a = 0, b = 1)
 
 auc <- round(auc, 4)
 legend(.6, .4, auc, title = "AUC", cex = 1)
-
 
 
