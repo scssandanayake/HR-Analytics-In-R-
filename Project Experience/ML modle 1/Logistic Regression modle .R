@@ -5,6 +5,7 @@ library(dplyr)
 dataset <- read.csv("D:\\N learn\\2nd year\\projects\\R project\\HR_Analytics.csv")
 summary(dataset)
 
+#data cleaning
 dataset <- dataset %>%
   mutate(Attrition = ifelse(Attrition == "No",0,1))
 
@@ -12,7 +13,7 @@ str(dataset)
 
 # Splitting dataset
 set.seed(123)
-split <- sample.split(dataset, SplitRatio = 0.7)
+split <- sample.split(dataset, SplitRatio = 0.7) # 30/70
 split
 
 train_reg <- subset(dataset, split == "TRUE")
