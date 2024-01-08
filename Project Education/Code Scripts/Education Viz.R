@@ -1,7 +1,10 @@
-data <- read.csv("C:\\Users\\Gosisa Jinasena\\Desktop\\R Project Education\\HR_Analytics.csv")
+# Importing the required libraries and the data set
 
 library(tidyverse)
 library(ggplot2)
+library(dplyr)
+
+data <- read.csv("C:\\Users\\Gosisa Jinasena\\Desktop\\R Project Education\\Education Viz\\HR_Analytics.csv")
 
 # Number of Employees by Education Field
 
@@ -16,16 +19,10 @@ barplot(Edu_Field,
 
 # Number of Employees by Gender & Education Field
 
-Gender <- table(data$Gender)
-Gender
-
-Edu_Field <- table(data$EducationField)
-Edu_Field
-
 ggplot(data, aes(x = EducationField, fill = Gender)) +
   geom_bar(position = "dodge",
            alpha = 0.5) +
-  labs(title = "Number of Employees by Gender & EducationField",
+  labs(title = "Number of Employees by Gender & Education Field",
        x = "Education Field",
        y = "Number of Employees") +
   theme_minimal() +
@@ -161,32 +158,34 @@ ggplot(Monthly_Edu, aes(x = Education, y = MonthlyIncome, fill = Gender)) +
         panel.background = element_rect(fill = "white", color = "black", linetype = "solid"),
         axis.line = element_line(color = "black"))
 
-# Number of Companies Worked by Education *To be corrected
+# Years at Company by Education Level
 
-data %>% 
-  select(Education, NumCompaniesWorked) %>%
-  mutate(Education = recode(Education,
-                            "1" = "Level 1",
-                            "2" = "Level 2",
-                            "3" = "Level 3",
-                            "4" = "Level 4",
-                            "5" = "Level 5")) %>% 
-  arrange(Education) -> NoComp_Edu
+stripchart(YearsAtCompany~Education,
+           data=data,
+           main="Years at Company by Education Level",
+           xlab="Education Level",
+           ylab="Years at Company",
+           col="blue",
+           group.names=c("Level 1","Level 2","Level 3","Level 4","Level 5"),
+           vertical=TRUE,
+           pch=16)
 
-NoComp_Edu %>% 
-  
-ggplot(aes(x = Education, y = NumCompaniesWorked)) +
-  geom_bar(stat = "identity", fill = "skyblue", alpha = 0.7) +
-  labs(title = "Number of Companies Worked by Education",
-       x = "Education Level",
-       y = "Number of Companies") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.background = element_rect(fill = "white", color = "black", linetype = "solid"),
-        axis.line = element_line(color = "black"),
-        legend.position = "none")
+# Monthly Income by Education Field
+
+install.packages("beeswarm")
+library(beeswarm)
+
+beeswarm(MonthlyIncome~EducationField,
+         data=data,
+         main="Monthly Income by Education Field",
+         xlab="Education Field",
+         ylab="Monthly Income",
+         col="skyblue",
+         vertical=TRUE,
+         pch=16)
+
+
+
 
 
 
