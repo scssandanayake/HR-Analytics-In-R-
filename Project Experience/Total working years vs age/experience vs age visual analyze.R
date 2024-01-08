@@ -32,7 +32,7 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
   )
 
 ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
-  geom_point(alpha = 0.7,            #here we mapping the geom points only
+  geom_point(alpha = 0.7,            
              aes(size= Age,
                  colour = AgeGroup))+
   geom_smooth(method = lm, se=F)+
