@@ -56,7 +56,7 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Education))+
 
 
 
-########################################################################################
+#################################################################################################
 
 #section 2
 #age hist
@@ -74,7 +74,7 @@ barplot(job_level, main = "Barplot - Employee Education Level Distribution ",
         ylab = "NO. Of Employees",
         col = "lightgreen")
 
-########################################################################################
+##################################################################################################
 
 #section 3 (main insights)
 #bar plot total working years (experience) vs Education Level with Job Satisfaction
@@ -119,7 +119,7 @@ ggplot(data = data, aes(x =data$TotalWorkingYears, y = data$Education, fill = Ge
        x = "Total Working Years", y = "Education Level") +
   theme_minimal()                #############   me tika hadanna thiyenawa
 
-############################################
+#####################################################################################################
 
 #bar plot total working years (experience) vs Education Level
 ggplot(data=data, aes(x =TotalWorkingYears, y =Education)) +
@@ -155,7 +155,7 @@ ggplot(data, aes(x = TotalWorkingYears)) +
        y = "No. of employees") +
   theme(strip.background = element_blank())
 
-##########################################################################################
+#####################################################################################################
 
 #section 4
 #boxplot Job Level
