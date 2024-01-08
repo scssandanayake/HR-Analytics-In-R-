@@ -64,8 +64,6 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$Age))+
     y = "Age"
   )
 
-
-
 ########################################################################################
 
 #section 2
