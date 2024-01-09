@@ -65,30 +65,6 @@ ggplot(data = data,aes(x=data$TotalWorkingYears,y=data$JobLevel))+
     y = "Job Level"
   )
 
-################################################################
-
-#scatter plot  Job Level vs total working years (experience)
-ggplot(data = data,aes(x=data$JobLevel,y=data$TotalWorkingYears))+
-  geom_point(size = 2,colour = "red",alpha = 0.5)+
-  geom_smooth(method = lm, se=F)+
-  labs(
-    title = "Total working years Vs.Age distribution",
-    x = "Job Level",
-    y = "Total Working Years"
-  )
-
-#check bell curve
-#scatter plot  Job Level vs total working years (experience)
-ggplot(data = data,aes(x=data$JobLevel,y=data$TotalWorkingYears))+
-  geom_point(size = 2,colour = "red",alpha = 0.5)+
-  geom_smooth()+
-  labs(
-    title = "Total working years Vs.Age distribution",
-    x = "Job Level",
-    y = "Total Working Years"
-  )
-
-
 ########################################################################################
 
 #section 2
