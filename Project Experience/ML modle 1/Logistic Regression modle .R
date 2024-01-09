@@ -7,10 +7,12 @@ library(caret)
 dataset <- read.csv("D:\\N learn\\2nd year\\projects\\R project\\HR_Analytics.csv")
 summary(dataset)
 
-#data cleaning
+#data cleaning and pre-processing
+sum(is.na(dataset))
+dataset <- na.omit(dataset)
+
 dataset <- dataset %>%
   mutate(Attrition = ifelse(Attrition == "No",0,1))
-
 str(dataset)
 
 # Splitting dataset
