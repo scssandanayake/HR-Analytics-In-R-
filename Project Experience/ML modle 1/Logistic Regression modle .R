@@ -3,7 +3,6 @@ library(ROCR)
 library(dplyr)
 library(caret)
 
-
 dataset <- read.csv("D:\\N learn\\2nd year\\projects\\R project\\HR_Analytics.csv")
 summary(dataset)
 
@@ -11,6 +10,8 @@ summary(dataset)
 sum(is.na(dataset))
 dataset <- na.omit(dataset)
 
+class(dataset$Attrition)
+unique(dataset$Attrition)
 dataset <- dataset %>%
   mutate(Attrition = ifelse(Attrition == "No",0,1))
 str(dataset)
